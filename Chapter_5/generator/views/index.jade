@@ -1,0 +1,35 @@
+html
+head
+    title #{title}
+    meta(http-equiv="Content-Type", content="text/html;charset=UTF-8")
+    link(href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css", rel="stylesheet")
+body
+    div.container
+        .card(style = "margin-top: 5%;")
+            h3.card-header Xử lý Form
+            .card-body
+                form(action="/user-info", method="post", enctype="application/x-www-form-urlencoded")
+                    .form-group
+                        label(for="firstname") First Name
+                        input.form-control(type="text", name="firstname", placeholder=" A", required)
+                    .form-group
+                        label(for="lastname") Last Name
+                        input.form-control(type="text", name="lastname", placeholder="Nguyễn Văn ", required)
+                    .form-group
+                        label(for="date") Birthday
+                        input.form-control(type="date", name="date", placeholder="19/07/2003", required)
+                    .form-group
+                        label(for="Email") Email
+                        input.form-control(type="text", name="email", placeholder="@", required)
+                    .form-group
+                        label(for="Phone") Phone Number
+                        input.form-control(type="number", name="phone", placeholder="0011", required)
+                    .form-group
+                        label(for="gender") Giới tính
+                        select.form-control(name="gender", required)
+                            option(value="Nam") Nam
+                            option(value="Nữ") Nữ
+                    .form-group
+                        label(for="Subject") Subject
+                        input.form-control(type="text", name="subject", required)
+                    button.btn.btn-block.btn-success(type="submit") Gửi
