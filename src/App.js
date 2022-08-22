@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react'
+import User from "./db.json";
+import GetUser from './Components/userLists';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props){
+    super(props)
+    this.state = {      
+        List: User
+    }
+  }
+
+  deleteAll = () => {
+    this.setState({
+      List:  []
+  })
+  }
+
+  resetAll = () => {
+    this.setState({
+      List:  User
+  })
+  }
+
+  render () {
+    return(
+      <div>
+        {this.state.List.map((data) => (
+          <GetUser
+          name={data.name}
+          age={data.age}
+          birthday={data.birthday}
+          avatar={data.avatar}
+          address={data.address}
+          
+          />
+        ))}
+        <button onClick={this.deleteAll}>Delete</button>
+        <button onClick={this.resetAll}>Reset</button>
+      </div>
+    )
+  }
 }
 
 export default App;
